@@ -1,11 +1,7 @@
 # Go-Back-N
 
 ## Description
-You will design a simple transport protocol that provides reliable datagram service by using one of the pipelining
-protocols. Your protocol will be responsible for ensuring data is delivered in order, without duplicates, missing data,
-or errors. For the assignment, you will write code that will transfer a file reliably from between two nodes (a sender and a
-receiver). You do NOT have to implement connection open/close etc. You may assume that the receiver is run first and
-will wait indefinitely, and the sender can just send the data to the receiver.
+Design a simple transport protocol that provides reliable datagram service by using one of the pipelining protocols. The protocol will be responsible for ensuring data is delivered in order, without duplicates, missing data, or errors. Write code that will transfer a file reliably from between two nodes (a sender and a receiver). Do NOT have to implement connection open/close etc. Assume that the receiver is run first and will wait indefinitely, and the sender can just send the data to the receiver.
 
 ## Requirements
 - Transfer the file name reliably.
