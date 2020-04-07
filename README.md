@@ -17,10 +17,8 @@ will wait indefinitely, and the sender can just send the data to the receiver.
 - Your code must be able to transfer a file with any number of packets dropped, damaged, duplicated, and
 delayed, and under a variety of different available bandwidths and link latencies.
 
-
-The command line syntax for your sending is given below. The client program takes command line argument of the
-remote IP address and port number, and the name of the file to transmit. The syntax for launching your sending
-program is therefore: 
+## Command Line
+The client program takes command line argument of the remote IP address and port number, and the name of the file to transmit. The syntax for launching your sending program is therefore: 
 
 sender -r "recv host":"recv port" -f "filename"
  
@@ -30,19 +28,15 @@ sender -r "recv host":"recv port" -f "filename"
 
 "filename" (Required) The name of the file (with its full path) to send. 
  
-To aid in grading and debugging, your sending program should print out messages to the console: When a sender
-sends a packet (including retransmission), it should print the following to standard error:
+To aid in grading and debugging, your sending program should print out messages to the console: When a sender sends a packet (including retransmission), it should print the following to standard error:
 
 "timestamp" [send data] start (length)
  
-where timestamp is a timestamp (down to the microsecond), start is the beginning offset of the data sent in the
-packet, and length is the amount of the data sent in that packet. When your sender receives an acknowledgement,
-you should also print to standard error:
+where timestamp is a timestamp (down to the microsecond), start is the beginning offset of the data sent in the packet, and length is the amount of the data sent in that packet. When your sender receives an acknowledgement, you should also print to standard error:
 
 "timestamp" [recv ack] end
 
-where end is the last offset that was acknowledged. You may also print some messages of your own to indicate
-timeouts, etc, depending on your design, but make it concise and readable. 
+where end is the last offset that was acknowledged. You may also print some messages of your own to indicate timeouts, etc, depending on your design, but make it concise and readable. 
 
 The command line syntax for your receiving program is given below.
 
@@ -54,14 +48,11 @@ The program will start up and will bind to a local port—once bound, it will pr
 
 "timestamp" [bound] port
 
-To aid in grading and debugging, your receiving program should print out messages to standard error: 
-When the receiver receives a valid data packet, it should print
+To aid in grading and debugging, your receiving program should print out messages to standard error:  When the receiver receives a valid data packet, it should print
 
 "timestamp" [recv data] start (length) status
 
-where start is the beginning offset of the data sent in the packet, and length is the amount of the data sent in that
-packet, and status is one of ACCEPTED (in-order), ACCEPTED (out-of-order), or IGNORED. If a corrupt packet
-arrives, it should print to standard error:
+where start is the beginning offset of the data sent in the packet, and length is the amount of the data sent in that packet, and status is one of ACCEPTED (in-order), ACCEPTED (out-of-order), or IGNORED. If a corrupt packet arrives, it should print to standard error:
 
 "timestamp" [recv corrupt packet]
 
